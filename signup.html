@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="static/css/sty.css">
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form action="/signup" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <select name="role" required>
+            <option value="member">Member</option>
+            <option value="manager">Manager</option>
+        </select>
+        <button type="submit">Sign Up</button>
+    </form>
+    <div style="margin-top: 50px; text-align: center;">
+        <a href="{{ url_for('login') }}">Go to Login Page</a>
+</body>
+</html>

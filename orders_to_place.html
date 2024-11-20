@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders to be Placed</title>
+    <style>
+        /* General Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f6fc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    color: #1d3a73;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 20px 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Order Container Styling */
+.order-container {
+    width: 90%;
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #3498db;
+    transition: transform 0.3s ease;
+}
+
+.order-container:hover {
+    transform: scale(1.02);
+}
+
+.order-container p {
+    font-size: 1em;
+    color: #555;
+    margin: 8px 0;
+}
+
+.order-container p strong {
+    color: #2c3e50;
+}
+
+/* Divider Styling */
+hr {
+    border: 1px solid #0288d1;
+    margin: 20px 0;
+    width: 90%;
+}
+
+/* Link Styling */
+a {
+    text-decoration: none;
+    color: #1d3a73;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #335a9c;
+}
+
+/* Footer Link Styling */
+.footer-link {
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .order-container {
+        width: 95%;
+    }
+
+    .order-container p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .order-container p {
+        font-size: 0.85em;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <h1>Orders to be Placed</h1>
+    
+    {% for order in orders %}
+    <div class="order-container">
+        <p><strong>Equipment Name:</strong> {{ order[0] }}</p>
+        <p><strong>Equipment ID Date:</strong> {{ order[1] }}</p>
+        <p><strong>Recommended Dealer:</strong> {{ order[2] }}</p>
+        <p><strong>Dealer Contact:</strong> {{ order[3] }}</p>
+        <p><strong>Dealer Address:</strong> {{ order[4] }}</p>
+    </div>
+    <hr>
+    {% endfor %}
+    <div style="margin-top: 50px; text-align: center;">
+        <a href="{{ url_for('view_orders') }}">Go to Main Page</a>
+    <div style="margin-top: 50px; text-align: center;">
+        <a href="{{ url_for('login') }}">Go to Login Page</a>
+    
+</body>
+</html>

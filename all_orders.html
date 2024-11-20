@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Orders</title>
+    <style>
+        /* General Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f6fc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    color: #1d3a73;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 20px 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    margin: 20px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+th {
+    background-color: #1d3a73;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+td {
+    color: #555;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f9fafc;
+}
+
+tr:hover {
+    background-color: #eaf1fd;
+    cursor: pointer;
+}
+
+/* Link Styling */
+a {
+    text-decoration: none;
+    color: #1d3a73;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #335a9c;
+}
+
+/* Footer Link Styling */
+.footer-link {
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    table {
+        width: 95%;
+    }
+
+    th, td {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    th, td {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <h1>Orders:</h1>
+    <table>
+        <tr>
+            <th>Order ID</th>
+            <th>Equipment Name</th>
+            <th>Quantity Ordered</th>
+            <th>Order Date</th>
+            <th>Room Requested</th>
+            <th>Approval Status</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order[0] }}</td>
+            <td>{{ order[1] }}</td>
+            <td>{{ order[2] }}</td>
+            <td>{{ order[3] }}</td>
+            <td>{{ order[4] }}</td>
+            <td>{{ order[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div style="margin-top: 50px; text-align: center;">
+        <a href="{{ url_for('view_orders') }}">Go to Main Page</a>
+    <div style="margin-top: 50px; text-align: center;">
+        <a href="{{ url_for('login') }}">Go to Login Page</a>
+
+</body>
+</html>
